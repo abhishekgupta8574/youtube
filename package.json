@@ -47,5 +47,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.3"
+  },
+  "netlify": {
+    "build": "npm run build"
   }
 }
