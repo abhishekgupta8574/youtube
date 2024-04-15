@@ -5,7 +5,7 @@ import { ShimmerPostItem } from "react-shimmer-effects";
 
 const ShimmerUI = () => {
   return (
-    <div className="flex flex-wrap justify-center ">
+    <div className="flex flex-wrap justify-center md:flex-row flex-col ">
         <div className="w-[22rem] h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
