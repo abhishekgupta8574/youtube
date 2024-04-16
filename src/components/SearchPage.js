@@ -32,10 +32,12 @@ const SearchPage = () => {
       const data = await fetch(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&regionCode=IN&q=${searchInput}{&key=` +
           MY_API_KEY
-      );
+      ); 
+
+      
       const json = await data.json();
       setVideoData(json.items);
-      //console.log(videoData);
+      //console.log(data);
     };
     //setVideoData(["avhh"])
     if(searchInput===result){

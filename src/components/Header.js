@@ -45,8 +45,9 @@ const Header = () => {
   useEffect(() => {
     const fetchSearchData = async () => {
       const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+     
       const json = await data.json();
-      //console.log("apicall");
+      
       setSuggestion(json[1]);
       dispatchSearch(pickSearchResult({ [searchQuery]: json[1] }));
     };
@@ -69,8 +70,8 @@ const Header = () => {
   // console.log("abhishek",ex);
 
   return (
-    <div className="grid grid-flow-col h-16 md:h-24 shadow-lg sticky top-0 bg-white z-50  w-auto ">
-      <div className="flex items-center md:h-24 h-16 md:col-span-1 col-span-3 md:ml-2 ">
+    <div className="grid grid-flow-col h-16 md:h-20 shadow-lg sticky top-0 bg-white z-50 w-screen ">
+      <div className="flex items-center md:h-20 h-16 md:col-span-1 col-span-3 md:ml-2 ">
         <IoMdMenu
           onClick={() => {
             if (location.pathname === "/") {
@@ -89,7 +90,7 @@ const Header = () => {
           />{" "}
         </Link>
       </div>
-      <div className="flex flex-col md:col-span-10 mt-5 md:my-auto col-span-6">
+      <div className="flex flex-col md:col-span-10  md:my-auto my-auto col-span-6">
         <div className="md:m-2   md:ml-5  text-center ">
           <form
             className="flex items-center justify-center"
@@ -100,7 +101,7 @@ const Header = () => {
           >
             <input
               type="text"
-              className="border rounded-l-full text-xs md:text-xl  md:w-1/2 w-28 md:p-1 px-2  border-gray-400 md:px-4 md:py-3 py-1"
+              className="border rounded-l-full text-xs md:text-xl  md:w-1/2 w-28 md:p-1 px-2  border-gray-400 md:px-4 md:py-2 py-1"
               placeholder="  Search here..."
               onChange={handleSearch}
               id="search-input"
@@ -108,7 +109,7 @@ const Header = () => {
             />
             <Link to={`/search?${searchQuery}`}>
               <button
-                className="md:p-1 text-xs md:text-xl text-gray-800 bg-gray-200 border border-gray-400 rounded-r-full  px-2 py-[.26rem] md:px-5 md:py-3 text-center"
+                className="md:p-1 text-xs md:text-xl text-gray-800 bg-gray-200 border border-gray-400 rounded-r-full  px-2 py-[.26rem] md:px-5 md:py-2 text-center"
                 value={searchQuery}
                 type="submit"
                 onClick={() => {
@@ -123,11 +124,11 @@ const Header = () => {
             </button>
           </form>
         </div>
-        <div className="bg-white md:w-[36rem] w-[9rem] ml-8 md:ml-64 shadow-lg rounded-lg border-gray-500 ">
+        <div className="bg-white md:w-[30rem] w-[9rem] ml-8 md:ml-44 shadow-lg rounded-lg border-gray-500 ">
           <ul>
             {suggestion.map((e) => (
               <div
-                className="flex items-center my-2  md:w-[36rem] hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
+                className="flex items-center my-2  md:w-[30rem] hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
                 onClick={(e) => {
                   //console.log("parent call->", e.target.innerHTML);
                   //setSearchQuery("");
@@ -148,7 +149,7 @@ const Header = () => {
                       setSearchQuery(e.target.innerHTML);
                      
                     }}
-                    className=" hover:cursor-pointer md:p-2 p-1 md:w-[31rem] "
+                    className=" hover:cursor-pointer md:p-2 p-1 md:w-[26rem] "
                   >
                     {e}
                   </li>
@@ -158,7 +159,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <div className=" h-16 md:h-24 md:col-span-1 col-span-3 overflow-hidden flex items-center justify-center ">
+      <div className=" h-16 md:mr-2 md:h-20 md:col-span-1 col-span-3 overflow-hidden flex items-center justify-center ">
         <span className="md:mx-6 md:text-3xl hidden md:inline ">
           {" "}
           <RiVideoAddLine />

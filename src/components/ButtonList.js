@@ -8,7 +8,7 @@ const ButtonList = () => {
   return (
     <div className="md:flex md:justify-center md:mt-2 hidden">
       <button
-        className={`py-[.35rem] px-4 m-4 text-center bg-slate-200 text-md text-slate-800 font-semibold transition duration-300 ease-in-out rounded-md ${
+        className={` px-3 mx-2 my-3 text-center bg-slate-200 text-md text-slate-800 font-semibold transition duration-300 ease-in-out rounded-md ${
           id === 0 ? "bg-slate-900 hover:bg-black text-white" : "hover:bg-gray-300 "
         } `}
         onClick={() => {
@@ -18,7 +18,7 @@ const ButtonList = () => {
         All
       </button>
       <button
-        className={`py-[.35rem] px-4 my-3 mx-2 text-center bg-slate-200 text-md text-slate-800 font-semibold transition duration-300 ease-in-out  rounded-md ${
+        className={`px-3 mx-2 my-3 text-center bg-slate-200 text-md text-slate-800 font-semibold transition duration-300 ease-in-out  rounded-md ${
           id === 25 ? "bg-slate-900 hover:bg-black text-white" : "hover:bg-gray-300"
         } `}
         onClick={() => {

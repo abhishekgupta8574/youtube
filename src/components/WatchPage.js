@@ -78,10 +78,10 @@ const WatchPage = () => {
     dispatch(closeSidebar());
   });
   return (
-    <div className="md:m-7 md:ml-16 ">
+    <div className= "md:m-7 md:ml-16">
       <div className="md:flex">
         <div className="flex md:flex-row flex-col">
-          <div className="mx-2 p-2">
+          <div className="md:mx-2 p-2">
             <iframe
               width="800"
               height="550"
@@ -91,10 +91,10 @@ const WatchPage = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen="allowfullscreen"
-              className="md:w-[50rem] w-[22rem] h-80 md:h-[34.5rem] "
+              className="md:w-[40rem] w-screen h-72 md:h-[30rem] "
             ></iframe>
           </div>
-          <div className="mx-2 p-2 md: w-[21rem] md:h-[34rem]">
+          <div className="mx-2 md:mx-0 p-2 md:w-[19rem] md:h-[22rem] w-screen ">
             <div className="flex justify-between ">
               <div
                 className={`mt-0 p-2 px-5 transition duration-200 ease-in-out rounded-full ${
@@ -120,9 +120,9 @@ const WatchPage = () => {
               <section className="bg-gray-100">
                 {" "}
                 <p className="border-b-2 border-b-gray-300 my-2"></p>
-                <ul className=" overflow-y-scroll h-[28.5rem] flex flex-col-reverse">
+                <ul className=" overflow-y-scroll h-[24rem] flex flex-col-reverse">
                   {messageSelector.map((data) => (
-                    <li className="ml-1">
+                    <li className="md:ml-1">
                       <ChatData name={data.naam} message={data.msg} />
                     </li>
                   ))}
@@ -155,7 +155,7 @@ const WatchPage = () => {
               </section>
             )}
           </div>
-          <div className="md:mx-2 mt-3 md:mt-0 md:p-2 border shadow-lg md:w-[26.5rem] h-[41rem] overflow-y-scroll bg-slate-100">
+          <div className="md:mx-2 mt-3 md:mt-0 md:p-2 border shadow-lg md:w-[18rem] w-screen h-[34rem] overflow-y-scroll overflow-x-hidden bg-slate-100">
             <p className="text-center font-bold text-gray-800"> Related Videos</p>
             <div>
             {recommondedVideos.map((video) => (
