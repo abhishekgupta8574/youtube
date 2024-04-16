@@ -44,17 +44,19 @@ const Header = () => {
   };
   useEffect(() => {
     const fetchSearchData = async () => {
-      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery,{
+      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery
+      //   ,{
         
-          method: "GET",
-          mode: "cors",
-          headers: {
-            'Content-Type': 'application/json',
-            Accept:'application/json',
-            'Access-Control-Allow-Origin':'*'
-          },
+      //     method: "GET",
+      //     mode: "cors",
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       Accept:'application/json',
+      //       'Access-Control-Allow-Origin':'*'
+      //     },
         
-      });
+      // }
+    );
      
       const json = await data.json();
       
