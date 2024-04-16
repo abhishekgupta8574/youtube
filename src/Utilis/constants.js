@@ -15,7 +15,7 @@ export const MY_API_KEY="AIzaSyAn-2cH5ISdqYUx0smy_2gP7e6CWFrHm9A";
 
  //https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=4Y4YSpF6d6w&key=
 
- export const YOUTUBE_SEARCH_API="https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+ export const YOUTUBE_SEARCH_API="https://cors.bridged.cc/https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
  //const rapidAbhiKey='cd44c2d346msh480a529fe5c1066p199857jsn3677a6571cc3';
  

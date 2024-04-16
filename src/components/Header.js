@@ -46,11 +46,11 @@ const Header = () => {
     const fetchSearchData = async () => {
       const data = await fetch(YOUTUBE_SEARCH_API + searchQuery,{
         method:"GET",
-        mode:"cors",
         headers: {
+          
           'Content-Type': 'application/json',
-          // Add any other headers as needed
         },
+        
       });
      
       const json = await data.json();
