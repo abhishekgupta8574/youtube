@@ -46,6 +46,14 @@ const Header = () => {
     const fetchSearchData = async () => {
       const data = await fetch(YOUTUBE_SEARCH_API + searchQuery,{
         
+          method: "GET",
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json',
+            Accept:'application/json',
+            'Access-Control-Allow-Origin':'*'
+          },
+        
       });
      
       const json = await data.json();
