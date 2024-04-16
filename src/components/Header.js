@@ -45,11 +45,6 @@ const Header = () => {
   useEffect(() => {
     const fetchSearchData = async () => {
       const data = await fetch(YOUTUBE_SEARCH_API + searchQuery,{
-        method:"GET",
-        headers: {
-          
-          'Content-Type': 'application/json',
-        },
         
       });
      
