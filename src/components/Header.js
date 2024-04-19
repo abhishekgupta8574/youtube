@@ -42,21 +42,36 @@ const Header = () => {
     // document.getElementById("search-input").value = ""
     setisloading(!isloading);
   };
+  const YOUTUBE_SEARCH_API_URL =
+    "https://youtube-data8.p.rapidapi.com/auto-complete/?q=";
+
+  const OPTIONS = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "cd44c2d346msh480a529fe5c1066p199857jsn3677a6571cc3",
+      "X-RapidAPI-Host": "youtube-data8.p.rapidapi.com",
+    },
+  };
+  const fetchSearchData = async () => {
+    const data = await fetch(
+      YOUTUBE_SEARCH_API_URL + searchQuery + "&hl=en&gl=US",
+      OPTIONS
+    );
+    
+    const json = await data.json();
+    //console.log(json);
+    //setSuggestion(json[1]);
+    setSuggestion(json?.results);
+    dispatchSearch(pickSearchResult({ [searchQuery]: json?.results }));
+  };
 
   useEffect(() => {
-    const fetchSearchData = async () => {
-      const data = await fetch("https://thingproxy.freeboard.io"+YOUTUBE_SEARCH_API+searchQuery);
-
-      const json = await data.json();
-
-      setSuggestion(json[1]);
-      dispatchSearch(pickSearchResult({ [searchQuery]: json[1] }));
-    };
-
     const timer = setTimeout(() => {
       if (selectSearch[searchQuery]) {
         setSuggestion(selectSearch[searchQuery]);
       } else {
+        //console.log("render", searchQuery)
+
         fetchSearchData().catch((e) => {
           console.log(e);
         });
@@ -65,7 +80,7 @@ const Header = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery, selectSearch, dispatchSearch]);
+  }, [searchQuery]);
   //console.log(suggestion);
   // const ex=<h1 className="text"> element </h1>;
   // console.log("abhishek",ex);
