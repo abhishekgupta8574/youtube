@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import Store from "../Utilis/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../Utilis/menuSlice";
-import { YOUTUBE_SEARCH_API } from "../Utilis/constants";
+import { MY_API_KEY, YOUTUBE_SEARCH_API } from "../Utilis/constants";
 import { pickSearchResult } from "../Utilis/searchSlice";
 import { Link, useLocation } from "react-router-dom";
 import { userContext } from "../App";
@@ -42,24 +42,13 @@ const Header = () => {
     // document.getElementById("search-input").value = ""
     setisloading(!isloading);
   };
+
   useEffect(() => {
     const fetchSearchData = async () => {
-      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery
-      //   ,{
-        
-      //     method: "GET",
-      //     mode: "cors",
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //       Accept:'application/json',
-      //       'Access-Control-Allow-Origin':'*'
-      //     },
-        
-      // }
-    );
-     
+      const data = await fetch("https://thingproxy.freeboard.io"+YOUTUBE_SEARCH_API+searchQuery);
+
       const json = await data.json();
-      
+
       setSuggestion(json[1]);
       dispatchSearch(pickSearchResult({ [searchQuery]: json[1] }));
     };
@@ -154,12 +143,11 @@ const Header = () => {
                   {" "}
                   <li
                     onClick={(e) => {
-                     // console.log("child call");
+                      // console.log("child call");
                       setSearchQuery("");
                     }}
                     onMouseUpCapture={(e) => {
                       setSearchQuery(e.target.innerHTML);
-                     
                     }}
                     className=" hover:cursor-pointer md:p-2 p-1 md:w-[26rem] "
                   >
