@@ -61,7 +61,12 @@ const Header = () => {
     const json = await data.json();
     //console.log(json);
     //setSuggestion(json[1]);
-    setSuggestion(json?.results);
+    console.log(json?.results);
+    const arr=json?.results.splice
+    (0,10);
+    
+    console.log(arr);
+    setSuggestion(arr);
     dispatchSearch(pickSearchResult({ [searchQuery]: json?.results }));
   };
 
@@ -144,7 +149,7 @@ const Header = () => {
           <ul>
             {suggestion.map((e) => (
               <div
-                className="flex items-center my-2  md:w-[30rem] hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
+                className="flex items-center md:my-1  md:w-[30rem] hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
                 onClick={(e) => {
                   //console.log("parent call->", e.target.innerHTML);
                   //setSearchQuery("");
