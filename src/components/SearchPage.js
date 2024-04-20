@@ -1,9 +1,12 @@
 import React, {  useEffect, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
-import { MY_API_KEY } from "../Utilis/constants";
+import {  YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
 
 import SearchVideoCard from "./SearchVideoCard";
+import { useDispatch } from "react-redux";
+import { addTitle } from "../Utilis/menuSlice";
+import ShimmerUI from "./ShimmerUI";
 
 const SearchPage = () => {
   const [videoData, setVideoData] = useState([]);
@@ -11,7 +14,7 @@ const SearchPage = () => {
   //const {bodyState,setBodyState}=useContext(bodyContext)
 
   const { search } = useLocation();
-
+const recommDispatch=useDispatch();
   //console.log();
   
 
@@ -29,15 +32,13 @@ const SearchPage = () => {
   useEffect(() => {
     setSearchInput(search.slice(1));
     const fetchSearchResult = async () => {
-      const data = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&regionCode=IN&q=${searchInput}{&key=` +
-          MY_API_KEY
+      const data = await fetch(YOUTUBE_SEARCH_RESULT_API+searchInput
       ); 
 
       
       const json = await data.json();
       setVideoData(json.items);
-      //console.log(data);
+      console.log(json);
     };
     //setVideoData(["avhh"])
     if(searchInput===result){
@@ -47,18 +48,19 @@ const SearchPage = () => {
   }, [search, searchInput, result]);
 
   //console.log("search Page Render ");
- 
+ if(videoData.length===0){
+  return <ShimmerUI/>
+ }
   return (
     <div className="flex flex-wrap md:justify-center md:ml-14 ">
     { videoData.map((item)=>
-      <Link key={item.id.videoId} to={"/watch?v=" + item.id.videoId}>
+      <Link key={item.id.videoId} to={"/watch?v=" + item?.id?.videoId} onClick={()=>{recommDispatch(addTitle(item.snippet.title))}}>
       <SearchVideoCard  data={item}/>
       </Link>
-    
     )
       }
     </div>
-  );
+  )
 };
 
 export default SearchPage;

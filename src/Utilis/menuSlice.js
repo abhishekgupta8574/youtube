@@ -5,7 +5,8 @@ const menuSlice = createSlice({
   
   initialState: { 
     isMenuOpen: false,
-    categoryId:0
+    categoryId:0,
+    title:""
     
     
   },
@@ -19,10 +20,12 @@ const menuSlice = createSlice({
     },
     setCategoryId:(state,action)=>{
       state.categoryId=action.payload;
+    },
+    addTitle:(state,action)=>{
+      state.title=action.payload;
     }
-
   }
 });
 
-export const {toggle,closeSidebar,setCategoryId} =menuSlice.actions;
+export const {toggle,closeSidebar,setCategoryId,addTitle} =menuSlice.actions;
 export default menuSlice.reducer;

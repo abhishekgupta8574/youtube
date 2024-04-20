@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import Store from "../Utilis/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../Utilis/menuSlice";
-import { MY_API_KEY, YOUTUBE_SEARCH_API } from "../Utilis/constants";
+
 import { pickSearchResult } from "../Utilis/searchSlice";
 import { Link, useLocation } from "react-router-dom";
 import { userContext } from "../App";
@@ -48,7 +48,7 @@ const Header = () => {
   const OPTIONS = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "cd44c2d346msh480a529fe5c1066p199857jsn3677a6571cc3",
+      "X-RapidAPI-Key": "b61ccaf20emshfcd0fd48044ba6ap13f228jsnd7517d4dd8fb",
       "X-RapidAPI-Host": "youtube-data8.p.rapidapi.com",
     },
   };
@@ -61,12 +61,9 @@ const Header = () => {
     const json = await data.json();
     //console.log(json);
     //setSuggestion(json[1]);
-    console.log(json?.results);
-    const arr=json?.results.splice
-    (0,10);
     
-    console.log(arr);
-    setSuggestion(arr);
+    
+    setSuggestion(json?.results);
     dispatchSearch(pickSearchResult({ [searchQuery]: json?.results }));
   };
 
@@ -78,14 +75,14 @@ const Header = () => {
         //console.log("render", searchQuery)
 
         fetchSearchData().catch((e) => {
-          console.log(e);
-        });
+         console.log(e);
+       });
       }
     }, 200);
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery]);
+  },);
   //console.log(suggestion);
   // const ex=<h1 className="text"> element </h1>;
   // console.log("abhishek",ex);

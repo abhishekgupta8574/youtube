@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar } from "../Utilis/menuSlice";
+import { addTitle, closeSidebar } from "../Utilis/menuSlice";
 import ChatData from "./ChatData";
 import { addMessage } from "../Utilis/ChatSlice";
-import { MY_API_KEY } from "../Utilis/constants";
+import { YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
 import RelatedVideos from "./RelatedVideos";
 
 const WatchPage = () => {
@@ -17,21 +17,22 @@ const WatchPage = () => {
   const dispatchAction = useDispatch();
   const messageSelector = useSelector((msg) => msg.chat.message);
   //console.log("searchpage")
+
+  const [recommondedVideos, setRecommondedVideos] = useState([]);
+  const title=useSelector((store)=>store.menu.title)
   
-  const[recommondedVideos,setRecommondedVideos]=useState([]);
- 
-  const fetchData = async () => {
-    const data = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&videoCategoryId=0&key=${MY_API_KEY}`
-    );
-    console.log("fetchdata");
-    const json = await data.json();
-    //console.log(json)
-    setRecommondedVideos(json.items);
-  }
-  useEffect(()=>{
+  //setVideoData(["avhh"])
+  const recommDispatch=useDispatch();
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch(YOUTUBE_SEARCH_RESULT_API + title );
+  
+      const json = await data.json();
+      setRecommondedVideos(json.items);
+      //console.log(data);
+    };
     fetchData();
-  },[])
+  }, [title]);
 
   const person = [
     "D Trump",
@@ -55,12 +56,11 @@ const WatchPage = () => {
     "I m in lov with ur creative vision.",
     "Looks like u r ready for hiring",
     "You're on the right track now.",
-    "Top-notch work!"
-    
+    "Top-notch work!",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log("dispatch");
+      //console.log("dispatch");
       dispatchAction(
         addMessage({
           naam: person[Math.floor(Math.random() * person.length)],
@@ -71,14 +71,14 @@ const WatchPage = () => {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  },);
 
   //console.log(messageSelector);
   useEffect(() => {
     dispatch(closeSidebar());
   });
   return (
-    <div className= "md:m-7 md:ml-16">
+    <div className="md:m-7 md:ml-16">
       <div className="md:flex">
         <div className="flex md:flex-row flex-col">
           <div className="md:mx-2 p-2">
@@ -131,11 +131,12 @@ const WatchPage = () => {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      dispatchAction(addMessage({
-                        naam:"You",
-                        msg:chat
-
-                      }))
+                      dispatchAction(
+                        addMessage({
+                          naam: "You",
+                          msg: chat,
+                        })
+                      );
                       setChat("");
                     }}
                   >
@@ -156,14 +157,16 @@ const WatchPage = () => {
             )}
           </div>
           <div className="md:mx-2 mt-3 md:mt-0 md:p-2 border shadow-lg md:w-[18rem] w-screen h-[34rem] overflow-y-scroll overflow-x-hidden bg-slate-100">
-            <p className="text-center font-bold text-gray-800"> Related Videos</p>
+            <p className="text-center font-bold text-gray-800">
+              {" "}
+              Related Videos
+            </p>
             <div>
-            {recommondedVideos.map((video) => (
-              <Link key={video.id} to={"/watch?v=" + video.id}>
-                <RelatedVideos info={video} />
-              </Link>
-            ))}
-           
+              {recommondedVideos.map((video) => (
+                <Link key={video.id.videoId} to={"/watch?v=" + video.id.videoId} onClick={()=>{recommDispatch(addTitle(video.snippet.title))}}>
+                  <RelatedVideos info={video}  />
+                </Link>
+              ))}
             </div>
           </div>
         </div>
