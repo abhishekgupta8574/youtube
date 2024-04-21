@@ -5,7 +5,7 @@ import {  YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
 
 import SearchVideoCard from "./SearchVideoCard";
 import { useDispatch } from "react-redux";
-import { addTitle } from "../Utilis/menuSlice";
+import { addTitle, toggleHiemburger } from "../Utilis/menuSlice";
 import ShimmerUI from "./ShimmerUI";
 
 const SearchPage = () => {
@@ -15,6 +15,7 @@ const SearchPage = () => {
 
   const { search } = useLocation();
 const recommDispatch=useDispatch();
+const dispatchHiemburger=useDispatch();
   //console.log();
   
 
@@ -30,6 +31,7 @@ const recommDispatch=useDispatch();
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    dispatchHiemburger(toggleHiemburger(false))
     setSearchInput(search.slice(1));
     const fetchSearchResult = async () => {
       const data = await fetch(YOUTUBE_SEARCH_RESULT_API+searchInput
