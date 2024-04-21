@@ -86,18 +86,18 @@ const Header = () => {
   //console.log(suggestion);
   // const ex=<h1 className="text"> element </h1>;
   // console.log("abhishek",ex);
-
+const hiemburgerSelector=useSelector((store)=>store.menu.hiemburger)
   return (
     <div className="grid grid-flow-col h-16 md:h-20 shadow-lg sticky top-0 bg-white z-50 w-screen ">
       <div className="flex items-center md:h-20 h-16 md:col-span-1 col-span-3 md:ml-2 ">
-        <IoMdMenu
+       { hiemburgerSelector && <IoMdMenu
           onClick={() => {
             if (location.pathname === "/") {
               handleToggle();
             }
           }}
           className="ml-[.88rem] md:text-3xl md:hidden"
-        />
+        />}
 
         <Link to={"/"}>
           {" "}
@@ -142,11 +142,11 @@ const Header = () => {
             </button>
           </form>
         </div>
-        <div className="bg-white md:w-[30rem] w-[9rem] ml-8 md:ml-44 shadow-lg rounded-lg border-gray-500 ">
+        <div className="bg-white md:w-[30rem] w-screen md:static absolute top-14  right-0 ml-8 md:ml-44 shadow-lg rounded-lg border-gray-500 ">
           <ul>
             {suggestion.map((e) => (
               <div
-                className="flex items-center md:my-1  md:w-[30rem] hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
+                className="flex items-center md:my-1  md:w-[30rem] w-full hover:bg-gray-200 shadow-gray-100  font-semibold shadow-sm"
                 onClick={(e) => {
                   //console.log("parent call->", e.target.innerHTML);
                   //setSearchQuery("");

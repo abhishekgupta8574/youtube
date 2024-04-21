@@ -4,13 +4,15 @@ import { YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
 import SearchVideoCard from "./SearchVideoCard";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addTitle } from "../Utilis/menuSlice";
+import { addTitle, toggleHiemburger } from "../Utilis/menuSlice";
 import ShimmerUI from "./ShimmerUI";
 
 const Podcast = () => {
     const [shortsData, setShortsData] = useState([]);
     const [showShimmer,setShowShimmer]=useState(false);
     const recommDispatch = useDispatch();
+    const dispatchHiemburger=useDispatch();
+ 
     const fetchSearchResult = async () => {
       setShowShimmer(true);
       const data = await fetch(YOUTUBE_SEARCH_RESULT_API + "podcast");
@@ -26,6 +28,7 @@ const Podcast = () => {
       }
     };
     useEffect(() => {
+      dispatchHiemburger(toggleHiemburger(false))
       window.addEventListener("scroll", handleScroll);
       fetchSearchResult();
   

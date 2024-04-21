@@ -20,7 +20,7 @@ const SearchVideoCard = ({ data }) => {
         className="rounded-lg object-cover w-90 md:h-52 h-40"
       />
       <ul>
-        <li className="font-bold py-2 text-md ">{title}</li>
+        <li className="font-bold py-2 text-md overflow-hidden ">{title}</li>
         <li className="font-semibold">{channelTitle}</li>
       </ul>
     </div>

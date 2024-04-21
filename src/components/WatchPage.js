@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addTitle, closeSidebar } from "../Utilis/menuSlice";
+import { addTitle, closeSidebar, toggleHiemburger } from "../Utilis/menuSlice";
 import ChatData from "./ChatData";
 import { addMessage } from "../Utilis/ChatSlice";
 import { YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
@@ -15,6 +15,7 @@ const WatchPage = () => {
   const watchId = searchUrl.get("v");
   const dispatch = useDispatch();
   const dispatchAction = useDispatch();
+  const dispatchHiemburger=useDispatch();
   const messageSelector = useSelector((msg) => msg.chat.message);
   //console.log("searchpage")
 
@@ -24,6 +25,7 @@ const WatchPage = () => {
   //setVideoData(["avhh"])
   const recommDispatch=useDispatch();
   useEffect(() => {
+    dispatchHiemburger(toggleHiemburger(false))
     const fetchData = async () => {
       const data = await fetch(YOUTUBE_SEARCH_RESULT_API + title );
   

@@ -3,14 +3,17 @@ import { YOUTUBE_SEARCH_RESULT_API } from "../Utilis/constants";
 import SearchVideoCard from "./SearchVideoCard";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addTitle } from "../Utilis/menuSlice";
+import { addTitle, toggleHiemburger } from "../Utilis/menuSlice";
 import ShimmerUI from "./ShimmerUI";
 
 const Shorts = () => {
   const [shortsData, setShortsData] = useState([]);
   const [showShimmer,setShowShimmer]=useState(false);
   const recommDispatch = useDispatch();
+  const dispatchHiemburger=useDispatch();
+  
   useEffect(() => {
+    dispatchHiemburger(toggleHiemburger(false))
     fetchSearchResult();
     window.addEventListener("scroll", handleScroll);
 

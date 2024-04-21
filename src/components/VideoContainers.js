@@ -30,7 +30,7 @@ const VideoContainers = () => {
         console.log(err);
       });
       console.log("maincall")
-    }, 0);
+    }, );
   },[id]);
   
   useEffect(() => {
@@ -52,7 +52,7 @@ const VideoContainers = () => {
   };
 
   return (
-    <div className="flex md:flex-row flex-col items-start flex-wrap md:justify-center">
+    <div className="md:ml-8 flex md:flex-row flex-col items-start flex-wrap md:justify-center">
       {videos.map((video,index) => (
         <Link
           key={index}
