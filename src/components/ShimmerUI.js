@@ -6,7 +6,7 @@ import { ShimmerPostItem } from "react-shimmer-effects";
 const ShimmerUI = () => {
   return (
     <div className="flex md:flex-wrap md:justify-center md:flex-row flex-col ">
-        <div className="w-[19rem] md-[24rem] h-72 object-cover overflow-hidden ">
+        <div className="w-[21rem] md-[24rem] h-72 object-cover overflow-hidden ">
         <ShimmerPostItem  rounded
           card
           title
@@ -18,7 +18,7 @@ const ShimmerUI = () => {
           
         />
         </div>
-        <div className="w-[19rem] md-[24rem] h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -29,7 +29,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem]  overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem]  overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -40,7 +40,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="md:w-[24rem] w-[19rem] md:h-72  overflow-hidden object-cover">
+        <div className="md:w-[24rem] w-[21rem] md:h-72  overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -51,7 +51,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72  overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72  overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -62,7 +62,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72  overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72  overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -73,7 +73,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -84,7 +84,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -95,7 +95,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -106,7 +106,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -117,7 +117,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -128,7 +128,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -139,7 +139,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -150,7 +150,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md:w-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -161,7 +161,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -172,7 +172,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -183,7 +183,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -194,7 +194,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -205,7 +205,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -216,7 +216,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -227,7 +227,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -238,7 +238,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -249,7 +249,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -260,7 +260,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -271,7 +271,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
@@ -282,7 +282,7 @@ const ShimmerUI = () => {
           contentCenter
         />
         </div>
-        <div className="w-[19rem] md-[24rem] md:h-72 overflow-hidden object-cover">
+        <div className="w-[21rem] md-[24rem] md:h-72 overflow-hidden object-cover">
         <ShimmerPostItem  rounded
           card
           title
